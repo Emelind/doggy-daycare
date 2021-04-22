@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import Welcome from './components/Welcome';
+import Register from './components/Register';
+import RegisterItem from './components/RegisterItem';
+import { useState } from 'react';
 
 function App() {
+
+  const WELCOME = 'welcome', REGISTER = 'register', REGISTERITEM = 'registerItem';
+
+  const [currentScreen, setCurrentScreen] = useState(WELCOME);
+  const [registerItem, setRegisterItem] = useState(null);
+
+  let content = null;
+
+  switch(currentScreen) {
+    case WELCOME:
+      content = <Welcome showRegister={() => setCurrentScreen(REGISTER)}/>
+      break;
+    case REGISTER:
+      content = <Register setRegisterItem={setRegisterItem} showRegisterItem={() => setCurrentScreen(REGISTERITEM)}/>
+      break; 
+    case REGISTERITEM:
+      content = <RegisterItem showRegister={() => setCurrentScreen(REGISTER)}/>
+      break;
+    default:
+      content = <Welcome />
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {registerItem}
       </header>
+      <main>
+        
+        {content}
+
+      </main>
     </div>
   );
 }

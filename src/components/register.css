@@ -1,0 +1,27 @@
+.register {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    gap: 10px;
+}
+
+.register .container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: inline;
+    grid-column: 1fr;
+    width: 100px;
+    height: 120px;
+}
+
+.register p {
+    margin: 0;
+}
+
+.register img {
+    width: 80%;
+    height: 60%;
+}
