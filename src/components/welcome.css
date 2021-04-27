@@ -1,18 +1,36 @@
 .welcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
     width: 100vw;
     height: 100vh;
 }
 
-.welcome > button {
-    margin-top: 50px;
-    background-color: seagreen;
+.welcome .border {
+    display: flex;
+    width: 100vw;
+    height: 25%;
+    background: rgb(28, 92, 62);
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome h1 {   
+    text-align: center;
+    text-transform: uppercase;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.562);
+}
+
+
+.welcome button {
+    margin-top: 100px;
+    background-color: #f70000;
+    transition: 1s linear;
     color: white;
     font-weight: bold;
     padding: 10px;
     border-radius: 20px;
+}
+
+.welcome button:hover {
+    background-color: #63f700;
+    transform: scale(2, 2);
 }

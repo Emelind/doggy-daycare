@@ -1,10 +1,16 @@
 import './welcome.css'
+import {Link} from 'react-router-dom';
 
-const Welcome = ({showRegister}) => (
+const Welcome = () => (
     
     <div className='welcome'>
-        <h1>Welcome to doggy daycare!</h1>
-        <button onClick={showRegister}>Check out the register</button>
+        <div className='border'>
+            <h1>Welcome to doggy daycare</h1>
+        </div>
+        <Link to='/register'>
+            <button>Check out the register</button>
+        </Link>
+        
     </div>
 )
 

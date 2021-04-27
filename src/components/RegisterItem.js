@@ -1,34 +1,32 @@
 import './registerItem.css'
 
-const RegisterItem = ({showRegister}) => {
+const RegisterItem = ({registerItem}) => {
 
     return (
         <div className='registerItem'>
             <div className='container'>
                 <div className='container-header'>
-                    <h3>Name</h3>
+                    <h3>{registerItem.name}</h3>
                     <div className='present-container'>
-                        <p className='present-icon'></p>
-                        <h4>Present</h4>
+                        <p className={'present-icon' + (registerItem.present ? ' present' : ' not-present')}></p>
+                        <h4>{registerItem.present ? 'Present' : 'Not present'}</h4>
                     </div>
                     
                 </div>
                 <div className='container-main'>
-                    <img src='https://images.dog.ceo/breeds/labrador/n02099712_3947.jpg' alt='dog' />
+                    <img src={registerItem.img} alt='dog' />
                     <div className='information'>
-                        Sex:
+                        Sex: {registerItem.sex}
                         <br/>
-                        Breed:
+                        Breed: {registerItem.breed}
                         <br/>
-                        Age:
+                        Age: {registerItem.age}
                         <br/>
-                        Chip number:
+                        Chip number: {registerItem.chipNumber}
                         <br/>
-                        Owner name:
+                        Owner name: {registerItem.owner.name} {registerItem.owner.lastName}
                         <br/>
-                        Phone number:
-                        <br/>
-                        <button onClick={showRegister}>Check out the register</button>
+                        Phone number: {registerItem.owner.phoneNumber}
                     </div>
                 </div>
             </div>

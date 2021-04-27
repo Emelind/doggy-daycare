@@ -1,41 +1,68 @@
 import React, {useEffect, useState} from 'react';
 import './register.css'
+import {useHistory} from 'react-router-dom';
+//import {getData} from './getData'
 
-const Register = ( {setRegisterItem, showRegisterItem} ) => {
+const Register = ( {setRegisterItem} ) => {
 
-    const [fetchedData, setFetchedData] = useState(null);
+    const [elementData, setElementData] = useState(null);
+    const [objectData, setObjectData] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
-        console.log('useEffect running');
+        //setFetchedData(getData)
 
-        const apiUrl = 'https://api.jsonbin.io/b/607eb43024143e5df089b745';
+        const apiUrl = 'https://api.jsonbin.io/b/6082a7f5a2213a0c14299336'; 
         
-        fetch(apiUrl)
+        // check if local storage is empty, if it is empty, fetch api and store to local storage
+        if (localStorage.length <= 0) {
+            
+            fetch(apiUrl)
             .then((response) => {
                 return response.json()
             })
             .then((data) => {
 
-                setFetchedData(data.map( item => 
-                    // ONCLICK med setRegisterItem till ITEM
-                    <div onClick={() => setRegisterItem(item)} className='container' key={item.name}>
-                        <p>{item.name}</p>
-                        <img src={item.img} alt='dog'/>
-                    </div>
-                    ));
+                for (let i = 0; i < data.length; i++) {
+                    let obj = data[i];
+                    localStorage.setItem(i, JSON.stringify(obj))
+                }
+                setObjectData(data);
+                
             })
             .catch((err) => {
-                // Do something for an error here
                 console.log(err)
-            }) 
+            })
+
+        } else {
+            // if local storage is not empty, get all items from storage and display
+            let objects = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                let object = JSON.parse(localStorage.getItem(i));
+                objects.push(object);
+            }
+            setObjectData(objects);
+        }
     }, []);
+
+    useEffect(() => {
+
+        setElementData(objectData.map( item => 
+            <div onClick={() => {setRegisterItem(item); history.push('/registeritem')}} className={'container' + (item.present ? ' present' : ' not-present')} key={item.name}>
+                <p>{item.name}</p>
+                <img src={item.img} alt='dog'/>
+            </div>
+            ));
+    }, [objectData]);
 
     return (
         <div className='register'>
-            <button onClick={showRegisterItem}></button>
-            {fetchedData}
+            <div className='box'>
+                {elementData}
+            </div>
         </div>
     )
 }
 
 export default Register;
+

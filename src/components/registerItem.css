@@ -7,6 +7,8 @@
 
 .registerItem .container{
     border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .registerItem .container-header {
@@ -14,7 +16,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
 }
 .registerItem .container-header h3 {
     margin-right: 4em;
@@ -30,8 +31,14 @@
     height: 0.8em;
     width: 0.8em;
     border-radius: 50%;
-    background-color: green;
     margin-right: 10px;
+}
+
+.registerItem .present-icon.present {
+    background-color: green;
+}
+.registerItem .present-icon.not-present {
+    background-color: red;
 }
 
 .registerItem .container-main {
@@ -40,13 +47,11 @@
 .registerItem img {
     width: 50%;
     padding: 10px;
-    border: 1px solid purple;
 }
 
 .registerItem .information {
     text-align: left;
     margin: 10px;
-    border: 1px solid blue;
 }
 
 @media (max-width: 350px) {

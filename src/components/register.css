@@ -1,20 +1,67 @@
 .register {
-    display: grid;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    font-size: 12px;
+}
+
+.register .box {
+    display: grid;
+    justify-items: center;
+    align-items: center;
     grid-template-columns: repeat(5, 1fr);
     padding: 10px;
     gap: 10px;
 }
 
+@media (min-width: 900px) {
+    .register {
+        margin: 0 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .register .box {
+        height: 100vh;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 340px) {
+    .register .box {
+        height: 100vh;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 280px) {
+    .register .box {
+        height: 100vh;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+
 .register .container {
-    border: 1px solid gray;
-    border-radius: 5px;
     display: inline;
     grid-column: 1fr;
     width: 100px;
     height: 120px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.register .present {
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.register .not-present {
+    border: 1px solid red;
+    border-radius: 5px;
 }
 
 .register p {
