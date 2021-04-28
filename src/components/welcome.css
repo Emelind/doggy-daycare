@@ -1,36 +1,40 @@
 .welcome {
     width: 100vw;
     height: 100vh;
+    background: lightgray;
 }
 
 .welcome .border {
     display: flex;
     width: 100vw;
     height: 25%;
-    background: rgb(28, 92, 62);
+    background: rgb(33, 102, 75);
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .welcome h1 {   
     text-align: center;
     text-transform: uppercase;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.562);
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 
 .welcome button {
     margin-top: 100px;
-    background-color: #f70000;
+    background-color: rgb(33, 102, 75);
     transition: 1s linear;
     color: white;
     font-weight: bold;
     padding: 10px;
     border-radius: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .welcome button:hover {
-    background-color: #63f700;
+    background-color: rgb(18, 54, 40);
     transform: scale(2, 2);
 }

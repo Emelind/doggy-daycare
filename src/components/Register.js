@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './register.css'
 import {useHistory} from 'react-router-dom';
-//import {getData} from './getData'
+//import getData from './getData';
 
 const Register = ( {setRegisterItem} ) => {
 
@@ -10,11 +10,10 @@ const Register = ( {setRegisterItem} ) => {
     const history = useHistory();
 
     useEffect(() => {
-        //setFetchedData(getData)
 
         const apiUrl = 'https://api.jsonbin.io/b/6082a7f5a2213a0c14299336'; 
         
-        // check if local storage is empty, if it is empty, fetch api and store to local storage
+        // check if local storage is empty. If empty, fetch api and store to local storage
         if (localStorage.length <= 0) {
             
             fetch(apiUrl)
@@ -49,10 +48,11 @@ const Register = ( {setRegisterItem} ) => {
 
         setElementData(objectData.map( item => 
             <div onClick={() => {setRegisterItem(item); history.push('/registeritem')}} className={'container' + (item.present ? ' present' : ' not-present')} key={item.name}>
-                <p>{item.name}</p>
                 <img src={item.img} alt='dog'/>
+                <p>{item.name}</p>
             </div>
             ));
+
     }, [objectData]);
 
     return (
