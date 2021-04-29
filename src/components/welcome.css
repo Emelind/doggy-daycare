@@ -1,7 +1,7 @@
 .welcome {
     width: 100vw;
     height: 100vh;
-    background: lightgray;
+    background: rgb(243, 243, 243);
 }
 
 .welcome .border {

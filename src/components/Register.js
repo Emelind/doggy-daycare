@@ -47,7 +47,7 @@ const Register = ( {setRegisterItem} ) => {
     useEffect(() => {
 
         setElementData(objectData.map( item => 
-            <div onClick={() => {setRegisterItem(item); history.push('/registeritem')}} className={'container' + (item.present ? ' present' : ' not-present')} key={item.name}>
+            <div onClick={() => {setRegisterItem(item); history.push('/registeritem')}} className={'container' + (item.present ? ' present' : ' not-present')} key={item.chipNumber}>
                 <img src={item.img} alt='dog'/>
                 <p>{item.name}</p>
             </div>

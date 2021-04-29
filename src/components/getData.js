@@ -9,7 +9,7 @@ const getDataFromApi = async () => {
     }
 }
 
-exort default getData;*/
+export default getData;*/
     
 
     

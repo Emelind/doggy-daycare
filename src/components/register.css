@@ -1,5 +1,5 @@
 .register {
-    background: lightgray;
+    background: rgb(243, 243, 243);
 }
 
 .register .box {
@@ -9,12 +9,6 @@
     grid-template-columns: repeat(4, 1fr);
     padding: 10px;
     gap: 10px;
-}
-
-@media (min-width: 340px) {
-    .register .box {
-        grid-template-columns: repeat(4, 1fr);
-    }
 }
 
 @media (min-width: 530px) {
@@ -34,7 +28,7 @@
     background-color: whitesmoke;
     display: inline;
     grid-column: 1fr;
-    width: 100px;
+    max-width: 100px;
     height: 120px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     transition: box-shadow 0.5s;
